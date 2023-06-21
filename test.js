@@ -48,9 +48,10 @@ async function addToWallet() {
 
                 const identityLabel = `${user}@${org.name}`;
                 await wallet.put(identityLabel, identity);
+                console.log(`wallet put ${identityLabel}`)
             }
         }
-
+        return wallet
     } catch (error) {
         console.log(`Error adding to wallet. ${error}`);
         console.log(error.stack);
@@ -60,10 +61,10 @@ async function addToWallet() {
 
 async function main() {
 
-    await addToWallet()
+    const wallet = await addToWallet()
 
     const gateway = new Gateway();
-    const wallet = await Wallets.newFileSystemWallet('./wallet');
+    // const wallet = await Wallets.newFileSystemWallet('./wallet');
 
     try {
         let args = process.argv.slice(2);
