@@ -69,7 +69,7 @@ async function main() {
     try {
         let args = process.argv.slice(2);
 
-        const identityLabel = "user2@org2.example.com";
+        const identityLabel = "User1@org2.example.com";
         const functionName = "currencyList";
 
         const orgName = identityLabel.split('@')[1];
